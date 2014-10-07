@@ -3,6 +3,6 @@
 using namespace std;
 
 int main() {
-    system("ARDTOOL_ENVTEST_VAR=Works echo $ARDTOOL_ENVTEST_VAR");
+    system("ARDTOOL_ENVTEST_VAR=Works env");
     return EXIT_SUCCESS;
 }
