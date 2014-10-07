@@ -1,0 +1,13 @@
+PATH
+  remote: ../ardtool-testgem
+  specs:
+    ardtool-testgem (0.1)
+
+GEM
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ardtool-testgem!

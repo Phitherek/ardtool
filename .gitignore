@@ -1,0 +1,5 @@
+*~
+*#
+.rvmrc
+tests/RVMTest
+tests/ENVTest
