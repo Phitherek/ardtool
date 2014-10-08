@@ -10,6 +10,8 @@ namespace ARDTool {
             std::vector<Project> _projects;
         public:
             ConfigFile(std::string path);
+            Project getProjectByName(std::string name);
+            std::string getPath();
     };
 }
 #endif

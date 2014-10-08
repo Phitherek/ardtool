@@ -6,6 +6,7 @@ namespace ARDTool {
     class Project {
         private:
             std::string _name;
+            std::string _path;
             std::string _env;
             std::vector<std::string> _modules;
             std::vector<std::string> _custom;
@@ -15,10 +16,12 @@ namespace ARDTool {
             Project();
             Project(std::string name);
             void setName(std::string name);
+            void setPath(std::string path);
             void setEnv(std::string env);
             void addModule(std::string module);
             void addCustom(std::string cmd);
             std::string getName();
+            std::string getPath();
             std::string getEnv();
             std::string getNextModule();
             std::string getNextCustom();

@@ -5,3 +5,5 @@ tests/RVMTest
 tests/ENVTest
 tests/ExceptionsTest
 tests/ProjectTest
+tests/ConfigFileTest
+*.marks

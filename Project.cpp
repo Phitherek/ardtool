@@ -4,6 +4,7 @@ using namespace ARDTool;
 
 Project::Project() {
     _name = "";
+    _path = "";
     _env = "";
     _modulesiter = -1;
     _customiter = -1;
@@ -18,6 +19,10 @@ Project::Project(std::string name) {
 
 void Project::setName(std::string name) {
     _name = name;
+}
+
+void Project::setPath(std::string path) {
+    _path = path;
 }
 
 void Project::setEnv(std::string env) {
@@ -41,6 +46,10 @@ void Project::addCustom(std::string cmd) {
 
 std::string Project::getName() {
     return _name;
+}
+
+std::string Project::getPath() {
+    return _path;
 }
 
 std::string Project::getEnv() {
@@ -92,7 +101,7 @@ void Project::resetCustom() {
 }
 
 bool Project::valid() {
-    if(_name != "" && _env != "") {
+    if(_name != "" && _env != "" && _path != "") {
         return true;
     }
     return false;

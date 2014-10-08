@@ -1,0 +1,16 @@
+{rails_project}
+[path]
+/path/to/rails/project
+[env]
+production
+[modules]
+bundle
+db
+assets
+-custom
+restart
+[endmodules]
+[custom]
+custom command
+[endcustom]
+{end}
