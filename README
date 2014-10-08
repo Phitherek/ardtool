@@ -1,4 +1,6 @@
 ARDTool - A simple Automatic Rails Deployment Tool
 ==============================
 
-This project' s purpose is to provide a simple helper tool for automatic, one-command deployment of Rails applications. It is tested with RVM to ensure no conflicts will occur. It is written in C++ and is still in heavy development. Check back for more!
+This project' s purpose is to provide a simple helper tool for automatic, one-command deployment of Rails applications. It is tested with RVM to ensure no conflicts will occur. It is designed for deployment in Phusion Passenger-like environments, however you can always create your custom set of commands to run in a given place of the deployment script. It is written in C++.
+
+Current version: v. 0.1

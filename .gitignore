@@ -7,3 +7,4 @@ tests/ExceptionsTest
 tests/ProjectTest
 tests/ConfigFileTest
 *.marks
+ardtool
