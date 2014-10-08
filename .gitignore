@@ -3,3 +3,5 @@
 .rvmrc
 tests/RVMTest
 tests/ENVTest
+tests/ExceptionsTest
+tests/ProjectTest
