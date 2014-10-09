@@ -16,7 +16,7 @@ void show_help(int argc, char** argv) {
 }
 
 int main(int argc, char** argv) {
-    cout << "ARDTool v. 0.1 (C) 2014 by Phitherek_" << endl;
+    cout << "ARDTool v. 0.2 (C) 2014 by Phitherek_" << endl;
     if(argc == 2) {
         string arg1 = "";
         arg1 += argv[1];
@@ -37,6 +37,15 @@ int main(int argc, char** argv) {
                     cout << "Changing directory to: " << p.getPath() << "..." << endl;
                     chdir(p.getPath().c_str());
                     cout << "Running in environment: " << p.getEnv() << "..." << endl;
+                    string bundle_cmd = "bundle";
+                    if(p.getRVM() != "") {
+                        cout << "Using RVM environment: " << p.getRVM() << "..." << endl;
+                        string rvm_path = getenv("rvm_path");
+                        bundle_cmd = rvm_path;
+                        bundle_cmd += "/wrappers/";
+                        bundle_cmd += p.getRVM();
+                        bundle_cmd += "/bundle";
+                    }
                     while(!p.modulesEnd()) {
                         string modname = p.getNextModule();
                         cout << "Running module: " << modname << endl;
@@ -44,27 +53,35 @@ int main(int argc, char** argv) {
                             string cmd = "";
                             cmd += "RAILS_ENV=";
                             cmd += p.getEnv();
-                            cmd += " bundle install";
+                            cmd += " ";
+                            cmd += bundle_cmd;
+                            cmd += " install";
                             cout << "Executing: " << cmd << endl;
                             system(cmd.c_str());
                         } else if(modname == "db") {
                             string cmd = "";
                             cmd += "RAILS_ENV=";
                             cmd += p.getEnv();
-                            cmd += " bundle exec rake db:migrate";
+                            cmd += " ";
+                            cmd += bundle_cmd;
+                            cmd += " exec rake db:migrate";
                             cout << "Executing: " << cmd << endl;
                             system(cmd.c_str());
                         } else if(modname == "assets") {
                             string cmd = "";
                             cmd += "RAILS_ENV=";
                             cmd += p.getEnv();
-                            cmd += " rake assets:clean";
+                            cmd += " ";
+                            cmd += bundle_cmd;
+                            cmd += " exec rake assets:clean";
                             cout << "Executing: " << cmd << endl;
                             system(cmd.c_str());
                             cmd = "";
                             cmd += "RAILS_ENV=";
                             cmd += p.getEnv();
-                            cmd += " rake assets:precompile";
+                            cmd += " ";
+                            cmd += bundle_cmd;
+                            cmd += " exec rake assets:precompile";
                             cout << "Executing: " << cmd << endl;                  
                             system(cmd.c_str());
                         } else if(modname == "restart") {

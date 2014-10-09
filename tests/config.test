@@ -3,6 +3,8 @@
 /path/to/rails/project
 [env]
 production
+[rvm]
+ruby-2.1.3@rails_project
 [modules]
 bundle
 db

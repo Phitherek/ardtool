@@ -41,7 +41,7 @@ ConfigFile::ConfigFile(std::string path) {
                     for(int i = 1; i < line.length()-1; i++) {
                         parsedoption += line[i];
                     }
-                    if(parsedoption == "path" || parsedoption == "env" || parsedoption == "modules" || parsedoption == "custom") {
+                    if(parsedoption == "path" || parsedoption == "env" || parsedoption == "rvm" || parsedoption == "modules" || parsedoption == "custom") {
                         parsestatus = parsedoption;
                     } else {
                         std::cout << "CONFIG PARSER: Error in line " << linecount << ": Unknown project option: " << parsedoption << "! Skipping project..." << std::endl;
@@ -72,6 +72,9 @@ ConfigFile::ConfigFile(std::string path) {
                 parsestatus = "projectparse";
             } else if(parsestatus == "env") {
                 p->setEnv(line);
+                parsestatus = "projectparse";
+            } else if(parsestatus == "rvm") {
+                p->setRVM(line);
                 parsestatus = "projectparse";
             } else if(parsestatus == "modules") {
                 if(line[0] != '[') {

@@ -6,6 +6,7 @@ Project::Project() {
     _name = "";
     _path = "";
     _env = "";
+    _rvm = "";
     _modulesiter = -1;
     _customiter = -1;
 }
@@ -13,6 +14,7 @@ Project::Project() {
 Project::Project(std::string name) {
     _name = name;
     _env = "";
+    _rvm = "";
     _modulesiter = -1;
     _customiter = -1;
 }
@@ -23,6 +25,10 @@ void Project::setName(std::string name) {
 
 void Project::setPath(std::string path) {
     _path = path;
+}
+
+void Project::setRVM(std::string rvm) {
+    _rvm = rvm;
 }
 
 void Project::setEnv(std::string env) {
@@ -54,6 +60,10 @@ std::string Project::getPath() {
 
 std::string Project::getEnv() {
     return _env;
+}
+
+std::string Project::getRVM() {
+    return _rvm;
 }
 
 std::string Project::getNextModule() {

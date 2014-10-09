@@ -8,6 +8,7 @@ namespace ARDTool {
             std::string _name;
             std::string _path;
             std::string _env;
+            std::string _rvm;
             std::vector<std::string> _modules;
             std::vector<std::string> _custom;
             int _modulesiter;
@@ -18,11 +19,13 @@ namespace ARDTool {
             void setName(std::string name);
             void setPath(std::string path);
             void setEnv(std::string env);
+            void setRVM(std::string rvm);
             void addModule(std::string module);
             void addCustom(std::string cmd);
             std::string getName();
             std::string getPath();
             std::string getEnv();
+            std::string getRVM();
             std::string getNextModule();
             std::string getNextCustom();
             bool modulesEnd();
